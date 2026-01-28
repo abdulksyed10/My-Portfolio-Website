@@ -3,6 +3,7 @@ import { AboutSection } from "../components/AboutSection";
 import { StarBackground } from "@/components/StarBackground";
 import { Navbar } from "../components/Navbar";
 import { ContactSection } from "../components/ContactSection";
+import { Footer } from "../components/Footer";
 
 export const Home = () => {
   return (
@@ -24,6 +25,7 @@ export const Home = () => {
       </main>
 
       {/* Footer */}
+      <Footer />
 
     </div>
   );
