@@ -40,7 +40,7 @@ export const Navbar = () => {
       <nav
         className={cn(
           "fixed top-0 left-0 w-full transition-all duration-300",
-          "z-[100]", // important: above hero effects
+          "z-100", // important: above hero effects
           "bg-background/90 dark:bg-background/70 backdrop-blur-md border-b border-border",
           isScrolled ? "py-3 shadow-sm" : "py-5"
         )}
@@ -70,7 +70,7 @@ export const Navbar = () => {
             {/* Mobile menu toggle */}
             <button
               onClick={() => setIsMenuOpen((prev) => !prev)}
-              className="md:hidden p-2 text-foreground z-[120]"
+              className="md:hidden p-2 text-foreground z-120"
               aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
               type="button"
             >
@@ -84,7 +84,7 @@ export const Navbar = () => {
       <div
         className={cn(
           "fixed left-0 right-0 bottom-0 top-[76px] md:hidden",
-          "z-[110]", // above hero, below the button
+          "z-110", // above hero, below the button
           "bg-background/95 dark:bg-background/85 backdrop-blur-md",
           "transition-opacity duration-300",
           isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
