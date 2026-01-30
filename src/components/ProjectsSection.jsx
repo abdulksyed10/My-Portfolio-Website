@@ -1,49 +1,154 @@
+import { useState } from "react";
+import { cn } from "@/lib/utils";
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
 
 const projects = [
+  // ===== Working on now =====
   {
-    id: 1,
-    title: "PennyWise.money",
+    id: "my-portfolio-website",
+    title: "Portfolio Website",
     description:
-      "Full-stack expense tracking platform with NLP-based categorization and Plaid integration. Built with a scalable Flask REST API and deployed on AWS.",
-    image: "/projects/pennywise.png",
-    tags: ["Flask", "React Native", "SQLAlchemy", "AWS", "Plaid", "NLP"],
-    demoUrl: "https://pennywise.money",
-    githubUrl: "https://github.com/abdulksyed10",
+      "Personal portfolio site focused on clean UI, performance, and accessibility-friendly design.",
+    tags: ["React", "Vite", "TailwindCSS"],
+    category: "web",
+    demoUrl: "https://www.abdulkalamsyed.com/",
+    githubUrl: "https://github.com/abdulksyed10/My-Portfolio-Website",
   },
   {
-    id: 2,
-    title: "Figma Accessibility Checker (AI + Rules)",
+    id: "p1-predictions",
+    title: "P1 Predictions Play-Along",
     description:
-      "Figma plugin that detects WCAG accessibility issues (contrast, font size, tap targets, alt text) using rule-based analysis with optional AI-powered fix suggestions.",
-    image: "/projects/figma-accessibility.png",
-    tags: ["JavaScript", "Figma API", "WCAG", "Accessibility", "AI"],
+      "Formula 1 predictions platform with scoring logic, leaderboards, and a Supabase-backed data model.",
+    tags: ["Next.js", "TypeScript", "Supabase", "PostgreSQL"],
+    category: "fullstack",
     demoUrl: "#",
-    githubUrl: "https://github.com/abdulksyed10",
+    githubUrl: "https://github.com/abdulksyed10/P1withMattTommy-PredictionsPlayAlong",
   },
   {
-    id: 3,
-    title: "P1 Predictions Game",
+    id: "figma-plugin-tool",
+    title: "Figma Accessibility Checker (Rules + AI)",
     description:
-      "Interactive Formula 1 prediction platform with real-time leaderboards, race scoring logic, and Supabase-backed authentication and data tracking.",
-    image: "/projects/p1-predictions.png",
-    tags: ["Next.js", "Supabase", "PostgreSQL", "React"],
+      "Figma plugin that flags WCAG issues (contrast, small text, tap targets, missing alt text) with optional AI fix suggestions.",
+    tags: ["JavaScript", "Figma API", "WCAG", "Accessibility"],
+    category: "accessibility",
     demoUrl: "#",
-    githubUrl: "https://github.com/abdulksyed10",
+    githubUrl: "https://github.com/abdulksyed10/Figma-plugin-tool",
   },
   {
-    id: 4,
-    title: "CIFAR-10 Image Classification",
+    id: "website-launch-timer",
+    title: "Website Launch Timer",
     description:
-      "CNN-based image classification system achieving 75%+ accuracy with a PyQt GUI for real-time image uploads and predictions.",
-    image: "/projects/cifar10.png",
-    tags: ["Python", "TensorFlow", "Keras", "OpenCV", "CNN"],
+      "Simple launch/countdown site for “under construction” pages and portfolio rollout.",
+    tags: ["HTML", "CSS", "JavaScript"],
+    category: "web",
     demoUrl: "#",
-    githubUrl: "https://github.com/abdulksyed10",
+    githubUrl: "https://github.com/abdulksyed10/Website_Launch_timer",
+  },
+
+  // ===== Showcase Projects (from your GitHub list) =====
+  {
+    id: "cs4800-expense-tracker",
+    title: "CS4800 Expense Tracker (Full App)",
+    description:
+      "End-to-end expense tracker with frontend + backend in a single repo.",
+    tags: ["JavaScript", "Python", "React Native", "Docker"],
+    category: "fullstack",
+    demoUrl: "#",
+    githubUrl: "https://github.com/CS4800-expense-tracker/Project",
+  },
+  {
+    id: "cs4200-final",
+    title: "CS4200 Final Project",
+    description:
+      "Course final project with applied computing experimentation and implementation work.",
+    tags: ["Python"],
+    category: "coursework",
+    demoUrl: "#",
+    githubUrl: "https://github.com/abdulksyed10/CS4200FinalProject",
+  },
+  {
+    id: "drive-thru",
+    title: "Los Pollos Hermanos Drive Thru System",
+    description:
+      "Group project (fork) implementing drive-thru order flow and system logic.",
+    tags: ["Python"],
+    category: "coursework",
+    demoUrl: "#",
+    githubUrl: "https://github.com/abdulksyed10/Los-Pollos-Hermanos-Drive-Thru-System",
+  },
+  {
+    id: "odlc",
+    title: "ODLC Machine Inferencing System",
+    description:
+      "Object recognition + obstacle avoidance scripts repo used for collaboration and year-to-year reuse.",
+    tags: ["Python", "Computer Vision"],
+    category: "ml",
+    demoUrl: "#",
+    githubUrl: "https://github.com/MarcCruzs/ODLC_Machine_Inferencing_System",
+  },
+  {
+    id: "berkshire-javafx",
+    title: "Berkshire Hathaway Frontend Redesign (JavaFX)",
+    description:
+      "Team project to modernize a website as a desktop application using JavaFX.",
+    tags: ["Java", "JavaFX"],
+    category: "coursework",
+    demoUrl: "#",
+    githubUrl: "https://github.com/CS2450-Frontend-Redesign/Berkshire-Hathaway-Frontend-Redesign",
+  },
+  {
+    id: "stock-ai-aws",
+    title: "Stock Trading AI (AWS Hosted)",
+    description:
+      "Team/course project for a stock trading AI hosted on AWS.",
+    tags: ["JavaScript", "AWS"],
+    category: "ml",
+    demoUrl: "#",
+    githubUrl: "https://github.com/DaJoesh/CS4650-AWS-Project",
+  },
+  {
+    id: "cs4250-group",
+    title: "CS4250.01 Group Project",
+    description:
+      "Group repo with applied Python implementation work.",
+    tags: ["Python"],
+    category: "coursework",
+    demoUrl: "#",
+    githubUrl: "https://github.com/Jman316b/CS4250.01-Group-Project",
+  },
+
+  // ===== Additional active / recent (public) =====
+  {
+    id: "compsci273a",
+    title: "CompSci273A",
+    description:
+      "Machine learning coursework and experiments (notebooks and supporting work).",
+    tags: ["Jupyter", "Python", "ML"],
+    category: "ml",
+    demoUrl: "#",
+    githubUrl: "https://github.com/abdulksyed10/CompSci273A",
+  },
+  {
+    id: "cs273a-final",
+    title: "CS273A Final Project",
+    description:
+      "Final project repo for ML coursework with notebooks and results.",
+    tags: ["Jupyter", "Python", "ML"],
+    category: "ml",
+    demoUrl: "#",
+    githubUrl: "https://github.com/abdulksyed10/CS273A-FinalProject",
   },
 ];
 
+const categories = ["all", "web", "fullstack", "accessibility", "ml", "coursework"];
+
 export const ProjectsSection = () => {
+  const [activeCategory, setActiveCategory] = useState("all");
+
+  const filteredProjects = projects.filter(
+    (p) => activeCategory === "all" || p.category === activeCategory
+  );
+
   return (
     <section id="projects" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
@@ -52,61 +157,77 @@ export const ProjectsSection = () => {
         </h2>
 
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          A selection of projects spanning full-stack development, machine
-          learning, and accessibility-focused software engineering.
+          Projects across full-stack engineering, accessibility tooling, and machine learning.
+          Filter by category to scan quickly.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setActiveCategory(category)}
+              className={cn(
+                "px-5 py-2 rounded-full transition-colors duration-300 capitalize",
+                activeCategory === category
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-secondary/70 text-foreground hover:bg-secondary"
+              )}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
+              className="bg-card p-6 rounded-lg shadow-xs card-hover flex flex-col"
             >
-              <div className="h-48 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-              </div>
-
-              <div className="p-6">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <h3 className="text-xl font-semibold mb-1">
-                  {project.title}
-                </h3>
-                <p className="text-muted-foreground text-sm mb-4">
+              <div className="mb-4">
+                <h3 className="text-lg font-semibold">{project.title}</h3>
+                <p className="text-sm text-muted-foreground mt-2">
                   {project.description}
                 </p>
+              </div>
 
-                <div className="flex space-x-3">
-                  {project.demoUrl !== "#" && (
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <ExternalLink size={20} />
-                    </a>
-                  )}
+              <div className="flex flex-wrap gap-2 mb-5">
+                {project.tags.map((tag) => (
+                  <span
+                    key={`${project.id}-${tag}`}
+                    className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-auto flex items-center gap-3">
+                {project.demoUrl !== "#" && (
+                  <a
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                    aria-label="Open live demo"
+                    title="Live demo"
+                  >
+                    <ExternalLink size={20} />
+                  </a>
+                )}
+
+                {project.githubUrl !== "#" && (
                   <a
                     href={project.githubUrl}
                     target="_blank"
+                    rel="noreferrer"
                     className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                    aria-label="Open GitHub repository"
+                    title="GitHub"
                   >
                     <Github size={20} />
                   </a>
-                </div>
+                )}
               </div>
             </div>
           ))}
@@ -116,6 +237,7 @@ export const ProjectsSection = () => {
           <a
             className="cosmic-button w-fit flex items-center mx-auto gap-2"
             target="_blank"
+            rel="noreferrer"
             href="https://github.com/abdulksyed10"
           >
             Check My GitHub <ArrowRight size={16} />
