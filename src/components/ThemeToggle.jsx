@@ -1,47 +1,52 @@
+// ThemeToggle.jsx
 import { Moon, Sun } from "lucide-react";
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
-export const ThemeToggle = () => {
-    const [isDarkMode, setIsDarkMode] = useState(false);
+export const ThemeToggle = ({ className = "" }) => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
-    useEffect(() => {
-        const savedTheme = localStorage.getItem("theme");
-        if (savedTheme === "dark") {
-            document.documentElement.classList.add("dark");
-            setIsDarkMode(true);
-        } else {
-            document.documentElement.classList.remove("dark");
-            setIsDarkMode(false);
-        }
-    }, []);
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
 
-    const toggleTheme = () => {
-        if (isDarkMode) {
-            document.documentElement.classList.remove("dark");
-            localStorage.setItem("theme", "light");
-            setIsDarkMode(false);
-        } else {
-            document.documentElement.classList.add("dark");
-            localStorage.setItem("theme", "dark");
-            setIsDarkMode(true);
-        }
-    };
+    const prefersDark =
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-    return ( 
-        <button 
-            onClick={toggleTheme}
-            className={cn(
-                "fixed max-sm:hidden top-5 right-5 z-50 p-2",
-                "rounded-full transition-colors duration-300",
-                "focus:outlin-hidden"
-            )}
-        > 
-            {isDarkMode ? (
-                <Sun className="h-6 w-6 text-yellow-300"/> 
-            ) : (
-                <Moon className="h-6 w-6 text-blue-900"/>
-            )} 
-        </button>
-    );
+    const shouldBeDark = savedTheme ? savedTheme === "dark" : prefersDark;
+
+    document.documentElement.classList.toggle("dark", shouldBeDark);
+    setIsDarkMode(shouldBeDark);
+  }, []);
+
+  const toggleTheme = () => {
+    const next = !isDarkMode;
+    document.documentElement.classList.toggle("dark", next);
+    localStorage.setItem("theme", next ? "dark" : "light");
+    setIsDarkMode(next);
+  };
+
+  return (
+    <button
+      onClick={toggleTheme}
+      type="button"
+      aria-label="Toggle theme"
+      className={cn(
+        "inline-flex items-center justify-center",
+        "h-10 w-10 rounded-full",
+        "border border-border",
+        "bg-background/60 backdrop-blur-md",
+        "shadow-sm transition-all duration-300",
+        "hover:bg-primary/10 hover:scale-105 active:scale-95",
+        "focus:outline-none focus:ring-2 focus:ring-primary/40",
+        className
+      )}
+    >
+      {isDarkMode ? (
+        <Sun className="h-5 w-5 text-primary" />
+      ) : (
+        <Moon className="h-5 w-5 text-primary" />
+      )}
+    </button>
+  );
 };
