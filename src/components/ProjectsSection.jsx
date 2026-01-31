@@ -1,6 +1,39 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { cn } from "@/lib/utils";
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
+
+const upcomingProjects = [
+  {
+    id: "ai-restaurant-website-builder",
+    title: "AI Restaurant Website Builder (Upcoming)",
+    description:
+      "AI-driven builder that generates production-ready restaurant websites (menu, sections, SEO, accessibility-first defaults) with clean, editable output.",
+    tags: ["Next.js", "AI", "SEO", "Accessibility"],
+    category: "fullstack",
+    demoUrl: "#",
+    githubUrl: "#",
+  },
+  {
+    id: "thesis-website-builders-accessibility",
+    title: "Thesis: Accessibility Evaluation of Website Builders (Upcoming)",
+    description:
+      "Research project evaluating modern website builders for accessibility outcomes across real-world sites, with systematic auditing and comparative analysis.",
+    tags: ["WCAG", "Accessibility", "Research", "Auditing"],
+    category: "accessibility",
+    demoUrl: "#",
+    githubUrl: "#",
+  },
+  {
+    id: "p1-predictions",
+    title: "P1 Predictions Play-Along",
+    description:
+      "Formula 1 predictions platform with scoring logic, leaderboards, and a Supabase-backed data model.",
+    tags: ["Next.js", "TypeScript", "Supabase", "PostgreSQL"],
+    category: "fullstack",
+    demoUrl: "#",
+    githubUrl: "https://github.com/abdulksyed10/P1withMattTommy-PredictionsPlayAlong",
+  },
+];
 
 const projects = [
   // ===== Working on now =====
@@ -14,16 +47,16 @@ const projects = [
     demoUrl: "https://www.abdulkalamsyed.com/",
     githubUrl: "https://github.com/abdulksyed10/My-Portfolio-Website",
   },
-  {
-    id: "p1-predictions",
-    title: "P1 Predictions Play-Along",
-    description:
-      "Formula 1 predictions platform with scoring logic, leaderboards, and a Supabase-backed data model.",
-    tags: ["Next.js", "TypeScript", "Supabase", "PostgreSQL"],
-    category: "fullstack",
-    demoUrl: "#",
-    githubUrl: "https://github.com/abdulksyed10/P1withMattTommy-PredictionsPlayAlong",
-  },
+  // {
+  //   id: "p1-predictions",
+  //   title: "P1 Predictions Play-Along",
+  //   description:
+  //     "Formula 1 predictions platform with scoring logic, leaderboards, and a Supabase-backed data model.",
+  //   tags: ["Next.js", "TypeScript", "Supabase", "PostgreSQL"],
+  //   category: "fullstack",
+  //   demoUrl: "#",
+  //   githubUrl: "https://github.com/abdulksyed10/P1withMattTommy-PredictionsPlayAlong",
+  // },
   {
     id: "figma-plugin-tool",
     title: "Figma Accessibility Checker (Rules + AI)",
@@ -74,7 +107,8 @@ const projects = [
     tags: ["Python"],
     category: "coursework",
     demoUrl: "#",
-    githubUrl: "https://github.com/abdulksyed10/Los-Pollos-Hermanos-Drive-Thru-System",
+    githubUrl:
+      "https://github.com/abdulksyed10/Los-Pollos-Hermanos-Drive-Thru-System",
   },
   {
     id: "odlc",
@@ -94,13 +128,13 @@ const projects = [
     tags: ["Java", "JavaFX"],
     category: "coursework",
     demoUrl: "#",
-    githubUrl: "https://github.com/CS2450-Frontend-Redesign/Berkshire-Hathaway-Frontend-Redesign",
+    githubUrl:
+      "https://github.com/CS2450-Frontend-Redesign/Berkshire-Hathaway-Frontend-Redesign",
   },
   {
     id: "stock-ai-aws",
     title: "Stock Trading AI (AWS Hosted)",
-    description:
-      "Team/course project for a stock trading AI hosted on AWS.",
+    description: "Team/course project for a stock trading AI hosted on AWS.",
     tags: ["JavaScript", "AWS"],
     category: "ml",
     demoUrl: "#",
@@ -109,8 +143,7 @@ const projects = [
   {
     id: "cs4250-group",
     title: "CS4250.01 Group Project",
-    description:
-      "Group repo with applied Python implementation work.",
+    description: "Group repo with applied Python implementation work.",
     tags: ["Python"],
     category: "coursework",
     demoUrl: "#",
@@ -131,8 +164,7 @@ const projects = [
   {
     id: "cs273a-final",
     title: "CS273A Final Project",
-    description:
-      "Final project repo for ML coursework with notebooks and results.",
+    description: "Final project repo for ML coursework with notebooks and results.",
     tags: ["Jupyter", "Python", "ML"],
     category: "ml",
     demoUrl: "#",
@@ -140,14 +172,30 @@ const projects = [
   },
 ];
 
-const categories = ["all", "web", "fullstack", "accessibility", "ml", "coursework"];
+// Add "upcoming" as a filter, keep "all", and ensure "upcoming" appears first.
+const categories = [
+  "upcoming",
+  "all",
+  "web",
+  "fullstack",
+  "accessibility",
+  "ml",
+  "coursework",
+];
 
 export const ProjectsSection = () => {
-  const [activeCategory, setActiveCategory] = useState("all");
+  const [activeCategory, setActiveCategory] = useState("upcoming");
 
-  const filteredProjects = projects.filter(
-    (p) => activeCategory === "all" || p.category === activeCategory
+  const allProjects = useMemo(
+    () => [...upcomingProjects, ...projects],
+    []
   );
+
+  const filteredProjects = useMemo(() => {
+    if (activeCategory === "upcoming") return upcomingProjects;
+    if (activeCategory === "all") return allProjects;
+    return allProjects.filter((p) => p.category === activeCategory);
+  }, [activeCategory, allProjects]);
 
   return (
     <section id="projects" className="py-24 px-4 relative">
