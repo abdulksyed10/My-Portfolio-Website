@@ -20,9 +20,13 @@ export const HeroSection = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-            Software Engineer and M.S. Software Engineering student at UC Irvine.
-            I build scalable full-stack applications, work with machine learning
-            systems, and research accessibility-focused software design.
+            Software Engineer and M.S. Software Engineering student at UC Irvine with hands-on experience building 
+            scalable full-stack applications, integrating machine learning systems, and deploying production-ready software.
+            <br />
+            <br />
+            My work spans backend APIs, modern web and mobile frontends, cloud infrastructure, and applied ML. 
+            I actively research accessibility-focused software design, with an emphasis on building inclusive, 
+            standards-compliant systems from the ground up.
           </p>
 
           <div className="pt-4 opacity-0 animate-fade-in-delay-4">
