@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Github, Linkedin } from "lucide-react";
 import { useEffect, useState } from "react";
 import { ThemeToggle } from "./ThemeToggle";
 
@@ -46,9 +46,14 @@ export const Navbar = () => {
         )}
       >
         <div className="container flex items-center justify-between">
-          <a className="text-xl font-bold flex items-center" href="#hero">
+          {/* Brand */}
+          <a
+            className="text-xl font-bold flex items-center max-w-[65%] md:max-w-none"
+            href="#hero"
+          >
             <span className="text-glow text-foreground">Abdul Kalam Syed</span>
-            <span className="ml-2 text-primary">Portfolio</span>
+            {/* Hide on very small screens to avoid crowding */}
+            <span className="ml-2 text-primary hidden sm:inline">Portfolio</span>
           </a>
 
           <div className="flex items-center gap-4">
@@ -65,17 +70,43 @@ export const Navbar = () => {
               ))}
             </div>
 
-            <ThemeToggle />
+            {/* Socials: desktop only */}
+            <div className="hidden md:flex items-center gap-3">
+              <a
+                href="https://github.com/abdulksyed10"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="text-foreground/70 hover:text-primary transition-colors"
+              >
+                <Github size={20} />
+              </a>
 
-            {/* Mobile menu toggle */}
-            <button
-              onClick={() => setIsMenuOpen((prev) => !prev)}
-              className="md:hidden p-2 text-foreground z-120"
-              aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
-              type="button"
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+              <a
+                href="https://www.linkedin.com/in/abdul-kalam-syed"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="text-foreground/70 hover:text-primary transition-colors"
+              >
+                <Linkedin size={20} />
+              </a>
+            </div>
+
+            {/* Compact controls on the right */}
+            <div className="flex items-center gap-2">
+              <ThemeToggle />
+
+              {/* Mobile menu toggle */}
+              <button
+                onClick={() => setIsMenuOpen((prev) => !prev)}
+                className="md:hidden p-2 text-foreground z-120"
+                aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
+                type="button"
+              >
+                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
           </div>
         </div>
       </nav>
@@ -87,16 +118,17 @@ export const Navbar = () => {
           "z-110", // above hero, below the button
           "bg-background/95 dark:bg-background/85 backdrop-blur-md",
           "transition-opacity duration-300",
-          isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          isMenuOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
         )}
-        // clicking outside closes
         onClick={closeMenu}
       >
-        {/* stop click propagation so clicks inside menu don't close unless link clicked */}
         <div
           className="h-full w-full flex flex-col items-center justify-center"
           onClick={(e) => e.stopPropagation()}
         >
+          {/* Links */}
           <div className="flex flex-col items-center space-y-8 text-2xl">
             {navItems.map((item) => (
               <a
@@ -108,6 +140,31 @@ export const Navbar = () => {
                 {item.name}
               </a>
             ))}
+          </div>
+
+          {/* Socials: mobile only (below links) */}
+          <div className="mt-10 flex items-center gap-6">
+            <a
+              href="https://github.com/abdulksyed10"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="text-foreground/80 hover:text-primary transition-colors"
+              onClick={closeMenu}
+            >
+              <Github size={28} />
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/abdul-kalam-syed"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="text-foreground/80 hover:text-primary transition-colors"
+              onClick={closeMenu}
+            >
+              <Linkedin size={28} />
+            </a>
           </div>
         </div>
       </div>
