@@ -110,7 +110,7 @@ const projects = [
     description:
       "System design project modeling a drive-thru ordering workflow, emphasizing order state transitions, correctness, and end-to-end logic.",
     tags: ["Python"],
-    category: "coursework",
+    category: "fullstack",
     demoUrl: "#",
     githubUrl:
       "https://github.com/abdulksyed10/Los-Pollos-Hermanos-Drive-Thru-System",
