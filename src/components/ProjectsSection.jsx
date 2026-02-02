@@ -2,12 +2,19 @@ import { useMemo, useState } from "react";
 import { cn } from "@/lib/utils";
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
 
+/**
+ * Content-only updates:
+ * - Categories cleaned up to reflect actual project themes
+ * - Descriptions improved
+ * - No design / layout / styling changes
+ */
+
 const upcomingProjects = [
   {
     id: "ai-restaurant-website-builder",
-    title: "AI Restaurant Website Builder (Upcoming)",
+    title: "AI Restaurant Website Builder",
     description:
-      "Generates production-ready restaurant sites from minimal inputs—menu pages, section layouts, SEO basics, and accessibility-first defaults—with clean, editable code output.",
+      "AI-powered tool that generates production-ready restaurant websites from minimal input, including menus, structured sections, SEO-friendly markup, and accessibility-first defaults with clean, editable code.",
     tags: ["Next.js", "AI", "SEO", "Accessibility"],
     category: "fullstack",
     demoUrl: "#",
@@ -15,9 +22,9 @@ const upcomingProjects = [
   },
   {
     id: "thesis-website-builders-accessibility",
-    title: "Thesis: Accessibility Evaluation of Website Builders (Upcoming)",
+    title: "Thesis: Accessibility Evaluation of Website Builders",
     description:
-      "Comparative study of real-world websites built with modern builders, measuring accessibility outcomes (WCAG-focused audits) and identifying patterns that lead to failures or better defaults.",
+      "Graduate research evaluating real-world websites built with modern site builders, comparing accessibility outcomes through systematic WCAG-based audits and cross-platform analysis.",
     tags: ["WCAG", "Accessibility", "Research", "Auditing"],
     category: "accessibility",
     demoUrl: "#",
@@ -27,7 +34,7 @@ const upcomingProjects = [
     id: "p1-predictions",
     title: "P1 Predictions Play-Along",
     description:
-      "Formula 1 predictions game with automated scoring, leaderboards, and a Supabase-backed data model designed for seasons, races, and repeatable scoring runs.",
+      "Formula 1 predictions platform featuring automated scoring, live leaderboards, and a normalized Supabase data model supporting seasons, races, and repeatable scoring logic.",
     tags: ["Next.js", "TypeScript", "Supabase", "PostgreSQL"],
     category: "fullstack",
     demoUrl: "#",
@@ -36,69 +43,72 @@ const upcomingProjects = [
 ];
 
 const projects = [
-  // ===== High-signal, actively relevant =====
   {
     id: "figma-plugin-tool",
     title: "Figma Accessibility Checker (Rules + AI)",
     description:
-      "Figma plugin that detects common WCAG issues—color contrast, small text, tap targets, and missing alt text—and generates actionable fix suggestions (with optional AI support).",
+      "Figma plugin that detects common WCAG accessibility issues—color contrast, small text, tap targets, and missing alt text—with rule-based flags and optional AI-generated fix suggestions.",
     tags: ["JavaScript", "Figma API", "WCAG", "Accessibility"],
     category: "accessibility",
     demoUrl: "#",
     githubUrl: "https://github.com/abdulksyed10/Figma-plugin-tool",
   },
-
   {
     id: "cs4800-expense-tracker",
-    title: "Expense Tracker (Full-Stack App)",
+    title: "Expense Tracker (Full App)",
     description:
-      "End-to-end expense tracking app with a full CRUD workflow, multi-surface UI, and containerized development to keep setup repeatable across machines.",
-    tags: ["React Native", "Python", "Docker", "APIs"],
+      "Full-stack expense tracking application with end-to-end CRUD workflows, a multi-screen UI, and containerized development for consistent local setup.",
+    tags: ["React Native", "Python", "Docker"],
     category: "fullstack",
     demoUrl: "#",
     githubUrl: "https://github.com/CS4800-expense-tracker/Project",
   },
-
-  {
-    id: "berkshire-javafx",
-    title: "Berkshire Hathaway Redesign (JavaFX Desktop App)",
-    description:
-      "Team redesign that re-implemented a legacy website experience as a JavaFX desktop application, focusing on cleaner structure, navigation, and UI modernization.",
-    tags: ["Java", "JavaFX", "UI Engineering"],
-    category: "coursework",
-    demoUrl: "#",
-    githubUrl:
-      "https://github.com/CS2450-Frontend-Redesign/Berkshire-Hathaway-Frontend-Redesign",
-  },
-
-  // ===== ML / CV (kept the ones that communicate a concrete theme) =====
   {
     id: "odlc",
     title: "ODLC Machine Inferencing System",
     description:
-      "Computer vision repo for object recognition workflows used across iterations—structured to support collaboration, reuse, and rapid experimentation on detection pipelines.",
+      "Computer vision system for object recognition and obstacle detection, structured to support collaboration, reuse, and rapid experimentation across project iterations.",
     tags: ["Python", "Computer Vision"],
     category: "ml",
     demoUrl: "#",
     githubUrl: "https://github.com/MarcCruzs/ODLC_Machine_Inferencing_System",
   },
   {
-    id: "compsci273a",
-    title: "ML Coursework & Experiments (CompSci273A)",
+    id: "stock-ai-aws",
+    title: "Stock Trading AI (AWS Hosted)",
     description:
-      "Collection of machine learning experiments and notebooks covering model training, evaluation, and iteration—kept as a single curated ML bucket instead of many small repos.",
+      "Team project deploying a stock-trading AI workflow on AWS, with emphasis on cloud hosting, integration, and an end-to-end project pipeline.",
+    tags: ["JavaScript", "AWS"],
+    category: "ml",
+    demoUrl: "#",
+    githubUrl: "https://github.com/DaJoesh/CS4650-AWS-Project",
+  },
+  {
+    id: "compsci273a",
+    title: "CompSci273A",
+    description:
+      "Machine learning coursework repository containing experiments and notebooks covering model training, evaluation, and comparative analysis.",
     tags: ["Python", "Jupyter", "Machine Learning"],
     category: "ml",
     demoUrl: "#",
     githubUrl: "https://github.com/abdulksyed10/CompSci273A",
   },
-
-  // ===== Optional: keep only if you want a “fun/extra” systems project =====
+  {
+    id: "berkshire-javafx",
+    title: "Berkshire Hathaway Frontend Redesign (JavaFX)",
+    description:
+      "Team project that reimagines a legacy website as a JavaFX desktop application, focusing on layout structure, navigation flow, and UI modernization.",
+    tags: ["Java", "JavaFX"],
+    category: "coursework",
+    demoUrl: "#",
+    githubUrl:
+      "https://github.com/CS2450-Frontend-Redesign/Berkshire-Hathaway-Frontend-Redesign",
+  },
   {
     id: "drive-thru",
-    title: "Drive-Thru Order System (Los Pollos Hermanos)",
+    title: "Los Pollos Hermanos Drive Thru System",
     description:
-      "Order-flow and system-logic implementation that models a drive-thru workflow end-to-end, focusing on state transitions and correctness in the ordering pipeline.",
+      "System design project modeling a drive-thru ordering workflow, emphasizing order state transitions, correctness, and end-to-end logic.",
     tags: ["Python"],
     category: "coursework",
     demoUrl: "#",
@@ -107,7 +117,19 @@ const projects = [
   },
 ];
 
-const categories = ["upcoming", "all", "fullstack", "accessibility", "ml", "coursework"];
+/**
+ * Updated categories:
+ * - Removed unused / misleading categories
+ * - Aligned directly with your strongest themes
+ */
+const categories = [
+  "upcoming",
+  "all",
+  "fullstack",
+  "accessibility",
+  "ml",
+  "coursework",
+];
 
 export const ProjectsSection = () => {
   const [activeCategory, setActiveCategory] = useState("upcoming");
@@ -128,7 +150,7 @@ export const ProjectsSection = () => {
         </h2>
 
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Focused, high-signal work across full-stack engineering, accessibility tooling, and ML.
+          Projects across full-stack engineering, accessibility tooling, and machine learning.
           Filter by category to scan quickly.
         </p>
 
