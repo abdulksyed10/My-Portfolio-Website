@@ -113,7 +113,7 @@ const projects = [
     category: "fullstack",
     demoUrl: "#",
     githubUrl:
-      "https://github.com/abdulksyed10/Los-Pollos-Hermanos-Drive-Thru-System",
+      "https://github.com/CS-3560-02-5/Los-Pollos-Hermanos-Drive-Thru-System",
   },
 ];
 
