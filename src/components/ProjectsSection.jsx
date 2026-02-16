@@ -3,10 +3,15 @@ import { cn } from "@/lib/utils";
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
 
 /**
- * Content-only updates:
- * - Categories cleaned up to reflect actual project themes
- * - Descriptions improved
- * - No design / layout / styling changes
+ * Fixes:
+ * - Added a proper "featured" filter without changing design.
+ * - Your earlier attempt was broken because `category: "fullstack", "featured"` is invalid JS.
+ * - Also `category: "fullstack","featured"` just evaluates to "featured" (comma operator) — not what you want.
+ *
+ * Approach (content-only):
+ * - Keep `category` as ONE value (used for normal filters).
+ * - Add `featured: true` boolean for featured projects.
+ * - Update filtering logic to handle "featured".
  */
 
 const upcomingProjects = [
@@ -37,7 +42,8 @@ const upcomingProjects = [
       "Formula 1 predictions platform featuring automated scoring, live leaderboards, and a normalized Supabase data model supporting seasons, races, and repeatable scoring logic.",
     tags: ["Next.js", "TypeScript", "Supabase", "PostgreSQL"],
     category: "fullstack",
-    demoUrl: "#",
+    featured: true,
+    demoUrl: "https://www.p1withmattandtommyfanpredictions.com/",
     githubUrl: "https://github.com/abdulksyed10/P1withMattTommy-PredictionsPlayAlong",
   },
 ];
@@ -54,13 +60,24 @@ const projects = [
     githubUrl: "https://github.com/abdulksyed10/Figma-plugin-tool",
   },
   {
+    id: "nba-champion-prediction",
+    title: "NBA Champion Prediction (Data Science + ML)",
+    description:
+      "End-to-end machine learning project that analyzes historical NBA team statistics to predict championship outcomes. Includes feature engineering (net rating, win %, efficiency metrics), model comparison (Logistic Regression, Random Forest), and evaluation using cross-validation and feature importance analysis.",
+    tags: ["Python", "Pandas", "Scikit-learn", "Machine Learning", "Data Science"],
+    category: "ml",
+    demoUrl: "#",
+    githubUrl: "https://github.com/abdulksyed10/CS2410FinalProject",
+  },
+  {
     id: "cs4800-expense-tracker",
     title: "Expense Tracker (Full App)",
     description:
       "Full-stack expense tracking application with end-to-end CRUD workflows, a multi-screen UI, and containerized development for consistent local setup.",
     tags: ["React Native", "Python", "Docker"],
     category: "fullstack",
-    demoUrl: "#",
+    featured: true,
+    demoUrl: "https://pennywise.money/",
     githubUrl: "https://github.com/CS4800-expense-tracker/Project",
   },
   {
@@ -111,18 +128,15 @@ const projects = [
       "System design project modeling a drive-thru ordering workflow, emphasizing order state transitions, correctness, and end-to-end logic.",
     tags: ["Python"],
     category: "fullstack",
+    featured: true,
     demoUrl: "#",
     githubUrl:
       "https://github.com/CS-3560-02-5/Los-Pollos-Hermanos-Drive-Thru-System",
   },
 ];
 
-/**
- * Updated categories:
- * - Removed unused / misleading categories
- * - Aligned directly with your strongest themes
- */
 const categories = [
+  "featured",
   "upcoming",
   "all",
   "fullstack",
@@ -137,6 +151,9 @@ export const ProjectsSection = () => {
   const allProjects = useMemo(() => [...upcomingProjects, ...projects], []);
 
   const filteredProjects = useMemo(() => {
+    if (activeCategory === "featured") {
+      return allProjects.filter((p) => p.featured);
+    }
     if (activeCategory === "upcoming") return upcomingProjects;
     if (activeCategory === "all") return allProjects;
     return allProjects.filter((p) => p.category === activeCategory);
