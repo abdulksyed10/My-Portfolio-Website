@@ -182,7 +182,7 @@ export const SkillsSection = () => {
   const totalCount = filtered.length;
 
   return (
-    <section id="skills" className="py-24 px-4 relative bg-secondary/30">
+    <section id="skills" className="pb-10 pt-15 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold">
