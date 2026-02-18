@@ -156,13 +156,13 @@ function Timeline({ items, type }) {
   return (
     <div className="mt-5 relative">
       {/* Line: aligned to the center of the dots */}
-      <div className="absolute left-[10px] top-0 bottom-0 w-px bg-border" />
+      <div className="absolute left-2.5 top-0 bottom-0 w-px bg-border" />
 
       <div className="space-y-6">
         {items.map((item, idx) => (
           <div key={`${type}-${idx}`} className="relative pl-10">
             {/* Dot: perfectly centered over the line */}
-            <span className="absolute left-[10px] top-[0.45rem] -translate-x-1/2 h-3.5 w-3.5 rounded-full bg-background ring-2 ring-primary/50">
+            <span className="absolute left-2.5 top-[0.45rem] -translate-x-1/2 h-3.5 w-3.5 rounded-full bg-background ring-2 ring-primary/50">
               <span className="absolute inset-0.5 rounded-full bg-primary/20" />
             </span>
 

@@ -63,6 +63,17 @@ const SKILLS = [
   { name: "Docker", tier: "familiar", category: "cloud" },
   { name: "Canva", tier: "familiar", category: "tools" },
   { name: "Figma", tier: "familiar", category: "tools" },
+
+  { name: "Communication", tier: null, category: "soft" },
+  { name: "Stakeholder Management", tier: null, category: "soft" },
+  { name: "Cross-Functional Collaboration", tier: null, category: "soft" },
+  { name: "Incident Triage & Troubleshooting", tier: null, category: "soft" },
+  { name: "Customer Support & Empathy", tier: null, category: "soft" },
+  { name: "Documentation & Knowledge Sharing", tier: null, category: "soft" },
+  { name: "Problem Decomposition", tier: null, category: "soft" },
+  { name: "Ownership & Reliability", tier: null, category: "soft" },
+  { name: "Time Management", tier: null, category: "soft" },
+  { name: "Agile / Scrum Collaboration", tier: null, category: "soft" },
 ];
 
 const CATEGORY_LABELS = {
@@ -74,6 +85,7 @@ const CATEGORY_LABELS = {
   cloud: "Cloud",
   ml: "ML / AI",
   tools: "Tools",
+  soft: "Soft Skills",
 };
 
 const CATEGORY_ORDER = [
@@ -85,6 +97,7 @@ const CATEGORY_ORDER = [
   "cloud",
   "ml",
   "tools",
+  "soft",
 ];
 
 const TIERS = [
@@ -171,12 +184,23 @@ export const SkillsSection = () => {
 
   const byTier = useMemo(() => {
     const map = { advanced: [], intermediate: [], familiar: [] };
-    for (const s of filtered) map[s.tier].push(s);
+    const noTier = [];
+
+    for (const s of filtered) {
+      if (!s.tier) {
+        noTier.push(s);
+      } else {
+        map[s.tier].push(s);
+      }
+    }
 
     for (const k of Object.keys(map)) {
       map[k].sort((a, b) => a.name.localeCompare(b.name));
     }
-    return map;
+
+    noTier.sort((a, b) => a.name.localeCompare(b.name));
+
+    return { ...map, noTier };
   }, [filtered]);
 
   const totalCount = filtered.length;
@@ -255,9 +279,23 @@ export const SkillsSection = () => {
             );
           })}
 
+          {byTier.noTier.length > 0 && (
+            <TierSection
+              title="Professional Skills"
+              subtitle="Applied in collaborative and production environments."
+              defaultOpen={true}
+            >
+              <div className="flex flex-wrap gap-2">
+                {byTier.noTier.map((s) => (
+                  <SkillChip key={`soft-${s.name}`} label={s.name} />
+                ))}
+              </div>
+            </TierSection>
+          )}
+
           {totalCount === 0 && (
             <div className="text-center text-muted-foreground py-10">
-              No skills match your filters.
+              No skills match your filters. I am always expanding my skill set, so feel free to check back later.
             </div>
           )}
         </div>
