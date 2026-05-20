@@ -26,6 +26,16 @@ const upcomingProjects = [
     githubUrl: "#",
   },
   {
+    id: "paintflow",
+    title: "PaintFlow",
+    description:
+      "Full-stack ERP-style platform for a paint shop, designed to manage products, inventory, billing, customer and vendor records, reports, and PDF-ready invoices through a modern dashboard workflow.",
+    tags: ["Next.js", "TypeScript", "Supabase", "ERP"],
+    category: "fullstack",
+    demoUrl: "https://paint-flow-flax.vercel.app/",
+    githubUrl: "https://github.com/abdulksyed10/PaintFlow",
+  },
+  {
     id: "thesis-website-builders-accessibility",
     title: "Thesis: Accessibility Evaluation of Website Builders",
     description:
@@ -35,6 +45,9 @@ const upcomingProjects = [
     demoUrl: "#",
     githubUrl: "#",
   },
+];
+
+const projects = [
   {
     id: "p1-predictions",
     title: "P1 Predictions Play-Along",
@@ -46,9 +59,6 @@ const upcomingProjects = [
     demoUrl: "https://www.p1withmattandtommyfanpredictions.com/",
     githubUrl: "https://github.com/abdulksyed10/P1withMattTommy-PredictionsPlayAlong",
   },
-];
-
-const projects = [
   {
     id: "figma-plugin-tool",
     title: "Figma Accessibility Checker (Rules + AI)",
