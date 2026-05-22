@@ -5,7 +5,7 @@ export const AboutSection = () => {
     {
       school: "UC Irvine",
       program: "M.S. in Software Engineering (MSSE)",
-      dates: "Sep 2024 – Aug 2026",
+      dates: "Sep 2024 – Dec 2026",
     },
     {
       school: "Cal Poly Pomona",
