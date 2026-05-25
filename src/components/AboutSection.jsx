@@ -58,7 +58,7 @@ export const AboutSection = () => {
           {/* Left */}
           <div className="space-y-6">
             <h3 className="text-2xl font-semibold">
-              Software Engineer · Full-Stack · AI & Accessibility
+              Software Engineer · Full-Stack · AI/ML & Accessibility
             </h3>
 
             <p className="text-muted-foreground">
