@@ -20,7 +20,7 @@ const SKILLS = [
   { name: "MySQL", tier: "advanced", category: "databases" },
 
   { name: "TensorFlow", tier: "intermediate", category: "ml" },
-  { name: "PyTorch", tier: "advanced", category: "ml" },
+  { name: "PyTorch", tier: "intermediate", category: "ml" },
 
   { name: "Git", tier: "advanced", category: "tools" },
   { name: "GitHub", tier: "advanced", category: "tools" },
