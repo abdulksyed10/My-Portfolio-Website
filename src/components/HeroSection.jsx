@@ -20,7 +20,7 @@ export const HeroSection = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-            Software Engineer and M.S. Software Engineering student at UC Irvine with hands-on experience building 
+            M.S. Software Engineering student at UC Irvine with hands-on experience building 
             scalable full-stack applications, integrating machine learning systems, and deploying production-ready software.
             <br />
             <br />
