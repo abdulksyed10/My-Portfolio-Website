@@ -8,6 +8,7 @@ import { SkillsSection } from "../components/SkillsSection";
 import { ContactSection } from "../components/ContactSection";
 import { Footer } from "../components/Footer";
 import { Toaster } from "@/components/Toaster";
+import { ChatAssistant } from "@/components/ChatAssistant";
 
 export const Home = () => {
   return (
@@ -33,6 +34,7 @@ export const Home = () => {
 
       {/* Footer */}
       <Footer />
+      <ChatAssistant />
       <Toaster />
 
     </div>
