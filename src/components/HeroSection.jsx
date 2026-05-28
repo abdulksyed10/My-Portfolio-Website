@@ -20,12 +20,14 @@ export const HeroSection = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-            M.S. Software Engineering student at UC Irvine with hands-on experience building 
-            scalable full-stack applications, integrating machine learning systems, and deploying production-ready software.
+            I am a freelance software developer and M.S. Software Engineering student at
+            UC Irvine with hands-on experience building scalable full-stack applications,
+            applied machine learning systems, and production-ready software.
             <br />
             <br />
-            My work spans backend APIs, modern web and mobile frontends, cloud infrastructure, and applied ML. 
-            I actively research accessibility-focused software design, with an emphasis on building inclusive, 
+            My work includes backend systems, modern web and mobile applications,
+            cloud-connected platforms, and custom ML models. I actively research
+            accessibility-focused software design, with an emphasis on building inclusive,
             standards-compliant systems from the ground up.
           </p>
 
