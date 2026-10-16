@@ -6,25 +6,41 @@ export const AboutSection = () => {
       school: "UC Irvine",
       program: "M.S. in Software Engineering (MSSE)",
       dates: "Sep 2024 – Dec 2026 (Expected)",
+      gpa: "GPA: 3.84"
     },
     {
       school: "Cal Poly Pomona",
       program: "B.S. in Computer Science (CS)",
       minor: "Minor in Data Science",
       dates: "Aug 2020 – May 2024",
+      gpa: "GPA: 3.82"
     },
   ];
 
   const experience = [
     {
+      company: "Collectibles",
+      role: "Full-Stack Developer · Independent Project",
+      dates: "Sep 2026 – Present",
+    },
+    {
       company: "PaintFlow",
       role: "Software Engineer · Freelance",
-      dates: "Apr 2026 – Present",
+      dates: "Jul 2026 – Present",
     },
     {
       company: "F1 Fan Engagement Platform",
       role: "Software Engineer · Indipendent Project",
-      dates: "Jan 2026 – Mar 2026",
+      periods: [
+        {
+          label: "Moderation",
+          dates: "Mar 2026  – Present",
+        },
+        {
+          label: "Development",
+          dates: "Jan 2026 – Mar 2026",
+        },
+      ],
     },
     {
       company: "Prime Healthcare",
@@ -205,6 +221,11 @@ function Timeline({ items, type }) {
                 <div className="text-xs text-muted-foreground mt-1">
                   {item.dates}
                 </div>
+                {item.gpa && (
+                  <div className="text-xs text-muted-foreground mt-1">
+                    {item.gpa}
+                  </div>
+                )}
               </>
             ) : (
               <>

@@ -49,6 +49,17 @@ const upcomingProjects = [
 
 const projects = [
   {
+    id: "share-collectibles",
+    title: "ShareCollectibles.com",
+    description:
+      "Cross-platform collectibles platform for organizing and selectively sharing personal collections, featuring secure media storage, public discovery, moderation workflows, and row-level access controls.",
+    tags: ["React Native", "Expo", "TypeScript", "Supabase", "PostgreSQL", "Cloudflare R2"],
+    category: "fullstack",
+    featured: true,
+    demoUrl: "https://sharecollectibles.com/",
+    githubUrl: "https://github.com/abdulksyed10/Collectibles",
+  },
+  {
     id: "p1-predictions",
     title: "P1 Predictions Play-Along",
     description:
