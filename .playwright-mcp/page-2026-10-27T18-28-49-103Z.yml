@@ -1,0 +1,396 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - link "Abdul Kalam Syed home" [ref=e5] [cursor=pointer]:
+      - /url: "#hero"
+      - generic [ref=e6]: ak.
+      - generic [ref=e7]: ABDUL KALAM SYEDSOFTWARE ENGINEER
+    - navigation "Main navigation" [ref=e8]:
+      - link "About" [ref=e9] [cursor=pointer]:
+        - /url: "#about"
+      - link "Skills" [ref=e10] [cursor=pointer]:
+        - /url: "#skills"
+      - link "Work" [ref=e11] [cursor=pointer]:
+        - /url: "#work"
+      - link "Contact" [ref=e12] [cursor=pointer]:
+        - /url: "#contact"
+    - button "Switch to cinematic mode" [ref=e14] [cursor=pointer]:
+      - generic [ref=e16]: PROFESSIONAL
+  - main [ref=e19]:
+    - generic [ref=e20]:
+      - generic [ref=e21]:
+        - generic [ref=e22]: HELLO, WORLD. I'M ABDUL KALAM SYED.
+        - heading [level=1] [ref=e24]:
+          - text: MORE THANWHAT I
+          - emphasis [ref=e25]: BUILD.
+        - generic [ref=e26]:
+          - paragraph [ref=e27]: Software engineer, curious human,and a few things in between.
+          - link "Explore my portfolio" [ref=e28] [cursor=pointer]:
+            - /url: "#about"
+      - generic [ref=e31]: A PORTFOLIO WITH PERSONALITY / SCROLL TO EXPLORE
+    - generic [ref=e32]:
+      - generic [ref=e33]:
+        - text: THE OTHER SIDE OF THE STORY
+        - heading [level=2] [ref=e34]:
+          - text: A little more
+          - emphasis [ref=e35]: about me.
+        - paragraph [ref=e36]: The work, the experience, and the things I've learned along the way.
+      - generic [ref=e38]:
+        - heading "About Me" [level=2] [ref=e39]
+        - generic [ref=e40]:
+          - generic [ref=e41]:
+            - heading "Software Engineer · Full-Stack · AI/ML & Accessibility" [level=3] [ref=e42]
+            - paragraph [ref=e43]: I am a Master’s student in Software Engineering at UC Irvine with hands-on experience building full-stack applications, backend systems, database-driven workflows, and AI-assisted software features. My work spans production support, independent product development, accessibility research, and freelance engineering.
+            - paragraph [ref=e44]: I enjoy turning complex requirements into clean, reliable systems. I have built applications using React, Next.js, Flask, Supabase, PostgreSQL, and cloud tools, while also bringing real-world experience from supporting enterprise healthcare systems across production environments.
+            - generic [ref=e45]:
+              - link "Get In Touch" [ref=e46] [cursor=pointer]:
+                - /url: "#contact"
+              - link "Download Resume" [ref=e47] [cursor=pointer]:
+                - /url: /Abdul-Kalam-Syed-SWE-Internship-Resume.pdf
+          - generic [ref=e48]:
+            - generic [ref=e50]:
+              - heading "Education" [level=4] [ref=e51]
+              - generic [ref=e57]:
+                - generic [ref=e58]:
+                  - generic [ref=e61]: UC Irvine
+                  - generic [ref=e62]: M.S. in Software Engineering (MSSE)
+                  - generic [ref=e63]: Sep 2024 – Dec 2026 (Expected)
+                  - generic [ref=e64]: "GPA: 3.84"
+                - generic [ref=e65]:
+                  - generic [ref=e68]: Cal Poly Pomona
+                  - generic [ref=e69]: B.S. in Computer Science (CS)
+                  - generic [ref=e70]: Minor in Data Science
+                  - generic [ref=e71]: Aug 2020 – May 2024
+                  - generic [ref=e72]: "GPA: 3.82"
+            - generic [ref=e74]:
+              - heading "Experience" [level=4] [ref=e75]
+              - generic [ref=e81]:
+                - generic [ref=e82]:
+                  - generic [ref=e85]: Collectibles
+                  - generic [ref=e86]: Full-Stack Developer · Independent Project
+                  - generic [ref=e87]: Sep 2026 – Present
+                - generic [ref=e88]:
+                  - generic [ref=e91]: PaintFlow
+                  - generic [ref=e92]: Software Engineer · Freelance
+                  - generic [ref=e93]: Jul 2026 – Present
+                - generic [ref=e94]:
+                  - generic [ref=e97]: F1 Fan Engagement Platform
+                  - generic [ref=e98]: Software Engineer · Indipendent Project
+                  - generic [ref=e99]:
+                    - generic [ref=e100]:
+                      - generic [ref=e101]: "Moderation:"
+                      - text: Mar 2026 – Present
+                    - generic [ref=e102]:
+                      - generic [ref=e103]: "Development:"
+                      - text: Jan 2026 – Mar 2026
+                - generic [ref=e104]:
+                  - generic [ref=e107]: Prime Healthcare
+                  - generic [ref=e108]: IT Support Specialist I
+                  - generic [ref=e109]:
+                    - generic [ref=e110]:
+                      - generic [ref=e111]: "Full-time:"
+                      - text: Sep 2024 – Present
+                    - generic [ref=e112]:
+                      - generic [ref=e113]: "Part-time:"
+                      - text: Jun 2023 – Sep 2024
+                - generic [ref=e114]:
+                  - generic [ref=e117]: M&M Construction
+                  - generic [ref=e118]: Project Assistant
+                  - generic [ref=e119]: Mar 2022 – Jun 2023
+          - generic [ref=e120]:
+            - generic [ref=e127]:
+              - heading "Full-Stack Development" [level=4] [ref=e128]
+              - paragraph [ref=e129]: Building modern web applications with React, Next.js, Flask, SQL, Supabase, PostgreSQL, Tailwind CSS, and cloud deployments.
+            - generic [ref=e136]:
+              - heading "Backend & Data" [level=4] [ref=e137]
+              - paragraph [ref=e138]: Designing REST APIs, relational schemas, scoring systems, reporting workflows, and data-driven features with a focus on reliability and maintainability.
+            - generic [ref=e145]:
+              - heading "Production Experience" [level=4] [ref=e146]
+              - paragraph [ref=e147]: Supporting enterprise healthcare systems, reproducing issues, validating workflows, and improving processes in high-volume, real-world environments.
+      - generic [ref=e149]:
+        - generic [ref=e150]:
+          - heading "My Skills" [level=2] [ref=e151]
+          - paragraph [ref=e152]: Grouped by proficiency. Filter by category or search to keep it clean.
+        - generic [ref=e153]:
+          - generic [ref=e154]:
+            - button "All" [ref=e155]
+            - button "Languages" [ref=e156]
+            - button "Frameworks" [ref=e157]
+            - button "Frontend" [ref=e158]
+            - button "Databases" [ref=e159]
+            - button "Cloud" [ref=e160]
+            - button "ML / AI" [ref=e161]
+            - button "Tools" [ref=e162]
+            - button "Soft Skills" [ref=e163]
+          - generic [ref=e166]:
+            - textbox "Search skills (e.g., React, AWS, Flask)..." [ref=e167]
+            - generic [ref=e168]: 55 shown
+        - generic [ref=e169]:
+          - generic [ref=e170]:
+            - button "Advanced High confidence, used in real projects or professional settings. Hide" [expanded] [ref=e171]:
+              - generic [ref=e172]:
+                - heading "Advanced" [level=3] [ref=e173]
+                - paragraph [ref=e174]: High confidence, used in real projects or professional settings.
+              - generic [ref=e175]: Hide
+            - generic [ref=e177]:
+              - generic [ref=e178]: CSS3
+              - generic [ref=e179]: Flask
+              - generic [ref=e180]: Git
+              - generic [ref=e181]: GitHub
+              - generic [ref=e182]: HTML5
+              - generic [ref=e183]: Java
+              - generic [ref=e184]: JavaScript
+              - generic [ref=e185]: Jira
+              - generic [ref=e186]: MongoDB
+              - generic [ref=e187]: MySQL
+              - generic [ref=e188]: Next.js
+              - generic [ref=e189]: PostgreSQL
+              - generic [ref=e190]: PyQt
+              - generic [ref=e191]: Python
+              - generic [ref=e192]: React
+              - generic [ref=e193]: Tailwind CSS
+          - generic [ref=e194]:
+            - button "Intermediate Solid working knowledge, used in multiple projects. Hide" [expanded] [ref=e195]:
+              - generic [ref=e196]:
+                - heading "Intermediate" [level=3] [ref=e197]
+                - paragraph [ref=e198]: Solid working knowledge, used in multiple projects.
+              - generic [ref=e199]: Hide
+            - generic [ref=e201]:
+              - generic [ref=e202]: AWS
+              - generic [ref=e203]: Django
+              - generic [ref=e204]: Insomnia
+              - generic [ref=e205]: JavaFX
+              - generic [ref=e206]: Kotlin
+              - generic [ref=e207]: Matplotlib
+              - generic [ref=e208]: Microsoft SQL Server
+              - generic [ref=e209]: NumPy
+              - generic [ref=e210]: OpenCV
+              - generic [ref=e211]: Pandas
+              - generic [ref=e212]: PyTorch
+              - generic [ref=e213]: React Native
+              - generic [ref=e214]: scikit-learn
+              - generic [ref=e215]: TensorFlow
+              - generic [ref=e216]: TypeScript
+              - generic [ref=e217]: Vercel
+          - generic [ref=e218]:
+            - button "Familiar Explored or used lightly; comfortable ramping up quickly. Hide" [expanded] [ref=e219]:
+              - generic [ref=e220]:
+                - heading "Familiar" [level=3] [ref=e221]
+                - paragraph [ref=e222]: Explored or used lightly; comfortable ramping up quickly.
+              - generic [ref=e223]: Hide
+            - generic [ref=e225]:
+              - generic [ref=e226]: .NET
+              - generic [ref=e227]: Amazon DynamoDB
+              - generic [ref=e228]: Anaconda
+              - generic [ref=e229]: Angular
+              - generic [ref=e230]: Azure
+              - generic [ref=e231]: C
+              - generic [ref=e232]: C++
+              - generic [ref=e233]: Canva
+              - generic [ref=e234]: Docker
+              - generic [ref=e235]: Figma
+              - generic [ref=e236]: GitHub Pages
+              - generic [ref=e237]: Keras
+              - generic [ref=e238]: Three.js
+          - generic [ref=e239]:
+            - button "Professional Skills Applied in collaborative and production environments. Hide" [expanded] [ref=e240]:
+              - generic [ref=e241]:
+                - heading "Professional Skills" [level=3] [ref=e242]
+                - paragraph [ref=e243]: Applied in collaborative and production environments.
+              - generic [ref=e244]: Hide
+            - generic [ref=e246]:
+              - generic [ref=e247]: Agile / Scrum Collaboration
+              - generic [ref=e248]: Communication
+              - generic [ref=e249]: Cross-Functional Collaboration
+              - generic [ref=e250]: Customer Support & Empathy
+              - generic [ref=e251]: Documentation & Knowledge Sharing
+              - generic [ref=e252]: Incident Triage & Troubleshooting
+              - generic [ref=e253]: Ownership & Reliability
+              - generic [ref=e254]: Problem Decomposition
+              - generic [ref=e255]: Stakeholder Management
+              - generic [ref=e256]: Time Management
+    - generic [ref=e257]:
+      - generic [ref=e258]:
+        - generic [ref=e259]:
+          - paragraph [ref=e260]: SELECTED WORK / A FEW FAVORITES
+          - heading [level=2] [ref=e261]:
+            - text: Ideas made
+            - emphasis [ref=e262]: real.
+        - generic [ref=e263]:
+          - text: A LITTLE BIT OF CODE.A LOT OF CURIOSITY.
+          - generic [ref=e264]: ↘
+      - generic [ref=e266]:
+        - article [ref=e267]:
+          - generic [ref=e268]:
+            - generic [ref=e269]: ISSUE NO. 01
+            - generic [ref=e270]: ✳ SELECTED WORK
+          - generic [ref=e271]:
+            - generic [ref=e272]:
+              - paragraph [ref=e273]: THE COLLECTOR'S CORNER
+              - heading "Share Collectibles" [level=3] [ref=e274]
+              - paragraph [ref=e275]: A home for your collections, made to be organized, discovered, and shared.
+            - generic [aria-hidden] [ref=e276]: ✳
+          - generic [ref=e277]:
+            - generic [ref=e278]: REACT NATIVE / SUPABASE
+            - link "Explore Share Collectibles" [ref=e279] [cursor=pointer]:
+              - /url: https://sharecollectibles.com/
+        - article [ref=e283]:
+          - generic [ref=e284]:
+            - generic [ref=e285]: ISSUE NO. 02
+            - generic [ref=e286]: ✳ SELECTED WORK
+          - generic [ref=e287]:
+            - generic [ref=e288]:
+              - paragraph [ref=e289]: LIGHTS OUT & AWAY WE GO
+              - heading "P1 Predictions Play-Along" [level=3] [ref=e290]
+              - paragraph [ref=e291]: A Formula 1 predictions platform that brings fans into the race.
+            - generic [aria-hidden] [ref=e292]: "01"
+          - generic [ref=e293]:
+            - generic [ref=e294]: NEXT.JS / POSTGRESQL
+            - link "Explore P1 Predictions Play-Along" [ref=e295] [cursor=pointer]:
+              - /url: https://www.p1withmattandtommyfanpredictions.com/
+        - article [ref=e299]:
+          - generic [ref=e300]:
+            - generic [ref=e301]: ISSUE NO. 03
+            - generic [ref=e302]: ✳ SELECTED WORK
+          - generic [ref=e303]:
+            - generic [ref=e304]:
+              - paragraph [ref=e305]: DESIGN FOR EVERYONE
+              - heading "Accessibility Checker" [level=3] [ref=e306]
+              - paragraph [ref=e307]: A Figma plugin helping designers spot common accessibility issues earlier.
+            - generic [aria-hidden] [ref=e308]: Aa
+          - generic [ref=e309]:
+            - generic [ref=e310]: FIGMA API / WCAG
+            - link "Explore Accessibility Checker" [ref=e311] [cursor=pointer]:
+              - /url: https://github.com/abdulksyed10/Figma-plugin-tool
+        - article [ref=e315]:
+          - generic [ref=e316]:
+            - generic [ref=e317]: ISSUE NO. 04
+            - generic [ref=e318]: ✳ SELECTED WORK
+          - generic [ref=e319]:
+            - generic [ref=e320]:
+              - paragraph [ref=e321]: MAKING WORK FLOW
+              - heading "PaintFlow" [level=3] [ref=e322]
+              - paragraph [ref=e323]: An ERP-style platform for managing the moving parts of a paint shop.
+            - generic [aria-hidden] [ref=e324]: ↗
+          - generic [ref=e325]:
+            - generic [ref=e326]: NEXT.JS / SUPABASE
+            - link "Explore PaintFlow" [ref=e327] [cursor=pointer]:
+              - /url: https://paint-flow-flax.vercel.app/
+      - generic [ref=e331]:
+        - generic [ref=e332]: SCROLL TO EXPLORE THE WORKA SELECTION OF MY WORK
+        - generic [ref=e333]: 01 — 04 ⟶
+    - generic [ref=e334]:
+      - generic [ref=e336]:
+        - heading "Featured Projects" [level=2] [ref=e337]
+        - paragraph [ref=e338]: Projects across full-stack engineering, accessibility tooling, and machine learning. Filter by category to scan quickly.
+        - generic [ref=e339]:
+          - button "featured" [ref=e340]
+          - button "upcoming" [ref=e341]
+          - button "all" [ref=e342]
+          - button "fullstack" [ref=e343]
+          - button "accessibility" [ref=e344]
+          - button "ml" [ref=e345]
+          - button "coursework" [ref=e346]
+        - generic [ref=e347]:
+          - generic [ref=e348]:
+            - generic [ref=e349]:
+              - heading "ShareCollectibles.com" [level=3] [ref=e350]
+              - paragraph [ref=e351]: Cross-platform collectibles platform for organizing and selectively sharing personal collections, featuring secure media storage, public discovery, moderation workflows, and row-level access controls.
+            - generic [ref=e352]:
+              - generic [ref=e353]: React Native
+              - generic [ref=e354]: Expo
+              - generic [ref=e355]: TypeScript
+              - generic [ref=e356]: Supabase
+              - generic [ref=e357]: PostgreSQL
+              - generic [ref=e358]: Cloudflare R2
+            - generic [ref=e359]:
+              - link "Open live demo" [ref=e360] [cursor=pointer]:
+                - /url: https://sharecollectibles.com/
+              - link "Open GitHub repository" [ref=e365] [cursor=pointer]:
+                - /url: https://github.com/abdulksyed10/Collectibles
+          - generic [ref=e369]:
+            - generic [ref=e370]:
+              - heading "P1 Predictions Play-Along" [level=3] [ref=e371]
+              - paragraph [ref=e372]: Formula 1 predictions platform featuring automated scoring, live leaderboards, and a normalized Supabase data model supporting seasons, races, and repeatable scoring logic.
+            - generic [ref=e373]:
+              - generic [ref=e374]: Next.js
+              - generic [ref=e375]: TypeScript
+              - generic [ref=e376]: Supabase
+              - generic [ref=e377]: PostgreSQL
+            - generic [ref=e378]:
+              - link "Open live demo" [ref=e379] [cursor=pointer]:
+                - /url: https://www.p1withmattandtommyfanpredictions.com/
+              - link "Open GitHub repository" [ref=e384] [cursor=pointer]:
+                - /url: https://github.com/abdulksyed10/P1withMattTommy-PredictionsPlayAlong
+          - generic [ref=e388]:
+            - generic [ref=e389]:
+              - heading "Expense Tracker (Full App)" [level=3] [ref=e390]
+              - paragraph [ref=e391]: Full-stack expense tracking application with end-to-end CRUD workflows, a multi-screen UI, and containerized development for consistent local setup.
+            - generic [ref=e392]:
+              - generic [ref=e393]: React Native
+              - generic [ref=e394]: Python
+              - generic [ref=e395]: Docker
+            - generic [ref=e396]:
+              - link "Open live demo" [ref=e397] [cursor=pointer]:
+                - /url: https://pennywise.money/
+              - link "Open GitHub repository" [ref=e402] [cursor=pointer]:
+                - /url: https://github.com/CS4800-expense-tracker/Project
+          - generic [ref=e406]:
+            - generic [ref=e407]:
+              - heading "Los Pollos Hermanos Drive Thru System" [level=3] [ref=e408]
+              - paragraph [ref=e409]: System design project modeling a drive-thru ordering workflow, emphasizing order state transitions, correctness, and end-to-end logic.
+            - generic [ref=e410]: Python
+            - link "Open GitHub repository" [ref=e413] [cursor=pointer]:
+              - /url: https://github.com/CS-3560-02-5/Los-Pollos-Hermanos-Drive-Thru-System
+        - link "Check My GitHub" [ref=e418] [cursor=pointer]:
+          - /url: https://github.com/abdulksyed10
+      - generic [ref=e422]:
+        - heading "Get In Touch" [level=2] [ref=e423]
+        - paragraph [ref=e424]: Have a project in mind or want to collaborate? Feel free to reach out. I'm always open to discussing new opportunities.
+        - generic [ref=e425]:
+          - generic [ref=e426]:
+            - heading "Contact Information" [level=3] [ref=e427]
+            - generic [ref=e428]:
+              - generic [ref=e434]:
+                - heading "Email" [level=4] [ref=e435]
+                - link "abdulksyed10@gmail.com" [ref=e436] [cursor=pointer]:
+                  - /url: mailto:abdulksyed10@gmail.com
+              - generic [ref=e441]:
+                - heading "Phone" [level=4] [ref=e442]
+                - link "+1 (951) 407-7430" [ref=e443] [cursor=pointer]:
+                  - /url: tel:+19514077430
+              - generic [ref=e449]:
+                - heading "Location" [level=4] [ref=e450]
+                - text: Ontario, CA, USA
+            - generic [ref=e451]:
+              - heading "Connect With Me" [level=4] [ref=e452]
+              - generic [ref=e453]:
+                - link [ref=e454] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/in/abdul-kalam-syed/
+                - link [ref=e459] [cursor=pointer]:
+                  - /url: https://github.com/abdulksyed10/
+          - generic [ref=e463]:
+            - heading "Send a Message" [level=3] [ref=e464]
+            - generic [ref=e465]:
+              - generic [ref=e466]:
+                - generic [ref=e467]: Your Name
+                - textbox "Your Name" [ref=e468]:
+                  - /placeholder: John Doe
+              - generic [ref=e469]:
+                - generic [ref=e470]: Your Email
+                - textbox "Your Email" [ref=e471]:
+                  - /placeholder: john@gmail.com
+              - generic [ref=e472]:
+                - generic [ref=e473]: Your Message
+                - textbox "Your Message" [ref=e474]:
+                  - /placeholder: Hello, I'd like to talk about...
+              - button "Send Message" [ref=e475]
+  - contentinfo [ref=e479]:
+    - paragraph [ref=e480]: © 2026 Implemented by Abdul Kalam Syed, with help from Pedrotech.co. All rights reserved.
+    - link [ref=e481] [cursor=pointer]:
+      - /url: "#hero"
+  - generic [ref=e484]:
+    - button "Open Abdul's virtual assistant" [ref=e485]:
+      - generic [ref=e491]:
+        - paragraph [ref=e492]: Hi, I am here to help.
+        - paragraph [ref=e493]: Ask me about Abdul's projects, experience, or skills.
+    - button "Open Abdul's virtual assistant" [ref=e494]
