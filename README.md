@@ -39,3 +39,9 @@ The three existing résumé PDFs remain in `public/`. Change `profile.resume` in
 ## Design and implementation notes
 
 The design brief, implementation plan, and progress notes are in `docs/superpowers/`. This redesign was implemented without launching a browser preview, as requested. Production builds and Node behavior tests provide the automated checks; visual inspection across devices remains a separate local review.
+
+## Readability and visual signature refinement
+
+The active design now uses an `aks` monogram consistently in the header, assistant, and favicon. The hero includes an interactive engineering map: choose Interface, Logic, or Data to explore a linked project. Pointer movement adds restrained depth when full motion is enabled; touch and keyboard use the same layer buttons without requiring hover. A desktop chapter rail tracks location through the page. Featured project art gains scroll-linked angle changes and a page-sweep treatment.
+
+The type scale has been increased throughout the page and chat. Short desktop viewports retain native gallery scrolling instead of squeezing the larger text into a pinned frame.

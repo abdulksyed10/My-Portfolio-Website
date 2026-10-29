@@ -12,13 +12,16 @@ export function usePortfolioMotion(root, mode) {
       intro.fromTo('.intro-name[data-from="left"]', { xPercent: -30, yPercent: 110, rotate: -7, opacity: 0 }, { xPercent: 0, yPercent: 0, rotate: 0, opacity: 1, duration: 1.25 }, .1)
         .fromTo('.intro-name[data-from="right"]', { xPercent: 30, yPercent: 110, rotate: 7, opacity: 0 }, { xPercent: 0, yPercent: 0, rotate: 0, opacity: 1, duration: 1.25 }, .25)
         .fromTo('.hero-title-label,.hero-description,.hero-actions', { y: 25, opacity: 0 }, { y: 0, opacity: 1, stagger: .12, duration: .8 }, .7)
-        .fromTo('.collage-code', { x: 100, y: -70, rotate: 15, opacity: 0 }, { x: 0, y: 0, rotate: -7, opacity: 1, duration: 1.2 }, .25)
-        .fromTo('.collage-project', { x: 130, y: 100, rotate: -18, opacity: 0 }, { x: 0, y: 0, rotate: 7, opacity: 1, duration: 1.15 }, .45)
-        .fromTo('.collage-note,.collage-stamp', { y: 70, scale: .8, opacity: 0 }, { y: 0, scale: 1, opacity: 1, stagger: .1, duration: .9 }, .85);
-      gsap.to('.collage-code', { y: -12, duration: 3.2, yoyo: true, repeat: -1, ease: 'sine.inOut', delay: 1.6 });
-      gsap.to('.collage-project', { y: 12, duration: 3.9, yoyo: true, repeat: -1, ease: 'sine.inOut', delay: 1.6 });
+        .fromTo('.system-map-heading,.map-evidence', { y: 35, opacity: 0 }, { y: 0, opacity: 1, duration: .9, stagger: .15 }, .65)
+        .fromTo('.map-core', { y: 70, rotate: -20, scale: .65, opacity: 0 }, { y: 0, rotate: 0, scale: 1, opacity: 1, duration: 1.2 }, .3)
+        .fromTo('.map-node--interface', { x: -80, y: -25, opacity: 0 }, { x: 0, y: 0, opacity: 1, duration: 1 }, .5)
+        .fromTo('.map-node--logic', { x: 80, opacity: 0 }, { x: 0, opacity: 1, duration: 1 }, .65)
+        .fromTo('.map-node--data', { x: -40, y: 60, opacity: 0 }, { x: 0, y: 0, opacity: 1, duration: 1 }, .8);
       gsap.utils.toArray('.profile-section .section-heading,.profile-intro h2,.history-heading,.education-list,.skills-section .section-heading,.archive-section .section-heading,.contact-copy h2').forEach(element => {
         gsap.fromTo(element, { y: 45, opacity: .12 }, { y: 0, opacity: 1, duration: .95, ease: 'power3.out', scrollTrigger: { trigger: element, start: 'top 92%', toggleActions: 'play none none reverse' } });
+      });
+      gsap.utils.toArray('.section-heading .heading-line').forEach(line => {
+        gsap.fromTo(line, { scaleX: 0, transformOrigin: 'left' }, { scaleX: 1, duration: 1.2, ease: 'power3.out', scrollTrigger: { trigger: line, start: 'top 92%', toggleActions: 'play none none reverse' } });
       });
       gsap.to('.hero-grid', { yPercent: 25, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
     }, root);
