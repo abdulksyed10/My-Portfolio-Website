@@ -99,8 +99,8 @@ export const AboutSection = () => {
               </a>
 
               <a
-                href="/Abdul-Kalam-Syed-SWE-Internship-Resume.pdf"
-                download="Abdul-Kalam-Syed-SWE-Internship-Resume.pdf"
+                href="/Abdul-Kalam-Syed-SWE-Resume.pdf"
+                download="Abdul-Kalam-Syed-SWE-Resume.pdf"
                 className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300 text-center"
               >
                 Download Resume
