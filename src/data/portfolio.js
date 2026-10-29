@@ -3,7 +3,7 @@ export const profile = {
   email: "abdulksyed10@gmail.com", phone: "+1 (951) 407-7430", phoneHref: "tel:+19514077430",
   location: "Ontario, California", github: "https://github.com/abdulksyed10",
   linkedin: "https://www.linkedin.com/in/abdul-kalam-syed/",
-  resume: "/Abdul-Kalam-Syed-SWE-Internship-Resume.pdf",
+  resume: "/Abdul-Kalam-Syed-SWE-Resume.pdf",
   introduction: "I build full-stack applications, backend systems, and AI-assisted tools. Currently pursuing an M.S. in Software Engineering at UC Irvine, with experience across freelance engineering, independent products, and enterprise healthcare IT.",
 };
 
