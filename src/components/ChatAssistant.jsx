@@ -1,210 +1,46 @@
-import { useMemo, useRef, useState } from "react";
-import { Bot, MessageCircle, Send, Sparkles, X } from "lucide-react";
-import { assistantKnowledge, assistantProfile } from "@/data/assistantKnowledge";
-import { cn } from "@/lib/utils";
+import { useEffect, useRef, useState } from 'react';
+import { ArrowUp, ArrowUpRight, MessageSquare, RotateCcw, X, Minus, Command } from 'lucide-react';
+import { answerQuestion } from '@/lib/assistantEngine';
+import { assistantProfile } from '@/data/assistantKnowledge';
+import '@/styles/assistant.css';
 
-const starterPrompts = [
-  "Tell me about Abdul",
-  "What projects has he built?",
-  "What are his skills?",
-  "How can I contact him?",
-];
-
-const normalize = (value) =>
-  value
-    .toLowerCase()
-    .replace(/[^a-z0-9\s]/g, " ")
-    .split(/\s+/)
-    .filter((word) => word.length > 2);
-
-const getResponse = (question) => {
-  const queryTerms = normalize(question);
-  if (queryTerms.length === 0) return assistantProfile.intro;
-
-  const ranked = assistantKnowledge
-    .map((entry) => {
-      const searchable = [
-        entry.category,
-        entry.title,
-        entry.answer,
-        ...(entry.keywords || []),
-      ].join(" ");
-      const text = searchable.toLowerCase();
-      const score = queryTerms.reduce(
-        (total, term) => total + (text.includes(term) ? 1 : 0),
-        0
-      );
-
-      return { ...entry, score };
-    })
-    .sort((a, b) => b.score - a.score);
-
-  if (!ranked[0] || ranked[0].score === 0) return assistantProfile.fallback;
-
-  return ranked[0].answer;
-};
-
-export const ChatAssistant = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [hasSeenGreeting, setHasSeenGreeting] = useState(false);
-  const [input, setInput] = useState("");
-  const [messages, setMessages] = useState([
-    {
-      id: "welcome",
-      role: "assistant",
-      text: assistantProfile.intro,
-    },
-  ]);
-  const inputRef = useRef(null);
-
-  const showGreeting = !isOpen && !hasSeenGreeting;
-
-  const suggestedPrompts = useMemo(
-    () => starterPrompts.filter((prompt) => prompt !== messages.at(-1)?.text),
-    [messages]
-  );
-
-  const openChat = () => {
-    setIsOpen(true);
-    setHasSeenGreeting(true);
-    window.setTimeout(() => inputRef.current?.focus(), 100);
-  };
-
-  const closeChat = () => {
-    setIsOpen(false);
-    setHasSeenGreeting(true);
-  };
-
-  const sendMessage = (text = input) => {
-    const question = text.trim();
-    if (!question) return;
-
-    const answer = getResponse(question);
-    setMessages((current) => [
-      ...current,
-      { id: crypto.randomUUID(), role: "user", text: question },
-      { id: crypto.randomUUID(), role: "assistant", text: answer },
-    ]);
-    setInput("");
-  };
-
-  return (
-    <div className="fixed bottom-5 right-4 z-50 flex flex-col items-end gap-3 sm:right-6">
-      {showGreeting && (
-        <button
-          type="button"
-          onClick={openChat}
-          className="max-w-[18rem] rounded-lg border border-border bg-card px-4 py-3 text-left shadow-lg backdrop-blur animate-fade-in"
-          aria-label="Open Abdul's virtual assistant"
-        >
-          <div className="flex items-start gap-3">
-            <span className="mt-0.5 rounded-full bg-primary/10 p-2 text-primary">
-              <Sparkles className="h-4 w-4" />
-            </span>
-            <div>
-              <p className="text-sm font-semibold">Hi, I am here to help.</p>
-              <p className="mt-1 text-xs text-muted-foreground">
-                Ask me about Abdul's projects, experience, or skills.
-              </p>
-            </div>
-          </div>
-        </button>
-      )}
-
-      {isOpen && (
-        <section
-          className="w-[calc(100vw-2rem)] max-w-sm overflow-hidden rounded-lg border border-border bg-card shadow-2xl"
-          aria-label="Abdul's virtual assistant chat"
-        >
-          <div className="flex items-center justify-between border-b border-border bg-primary px-4 py-3 text-primary-foreground">
-            <div className="flex items-center gap-2 text-left">
-              <Bot className="h-5 w-5" />
-              <div>
-                <h2 className="text-sm font-semibold">Abdul's Assistant</h2>
-                <p className="text-xs opacity-85">Portfolio guide</p>
-              </div>
-            </div>
-            <button
-              type="button"
-              onClick={closeChat}
-              className="rounded-full p-1 transition-colors hover:bg-white/15"
-              aria-label="Close chat"
-              title="Close chat"
-            >
-              <X className="h-5 w-5" />
-            </button>
-          </div>
-
-          <div className="max-h-[22rem] space-y-3 overflow-y-auto px-4 py-4 text-left">
-            {messages.map((message) => (
-              <div
-                key={message.id}
-                className={cn(
-                  "max-w-[88%] rounded-lg px-3 py-2 text-sm leading-relaxed",
-                  message.role === "assistant"
-                    ? "bg-secondary/50 text-foreground"
-                    : "ml-auto bg-primary text-primary-foreground"
-                )}
-              >
-                {message.text}
-              </div>
-            ))}
-          </div>
-
-          <div className="border-t border-border px-4 py-3">
-            <div className="mb-3 flex flex-wrap gap-2">
-              {suggestedPrompts.slice(0, 4).map((prompt) => (
-                <button
-                  key={prompt}
-                  type="button"
-                  onClick={() => sendMessage(prompt)}
-                  className="rounded-full border border-border bg-background px-3 py-1 text-xs text-foreground transition-colors hover:bg-secondary/60"
-                >
-                  {prompt}
-                </button>
-              ))}
-            </div>
-
-            <form
-              className="flex items-center gap-2"
-              onSubmit={(event) => {
-                event.preventDefault();
-                sendMessage();
-              }}
-            >
-              <label className="sr-only" htmlFor="assistant-message">
-                Message Abdul's virtual assistant
-              </label>
-              <input
-                id="assistant-message"
-                ref={inputRef}
-                value={input}
-                onChange={(event) => setInput(event.target.value)}
-                placeholder="Ask about Abdul..."
-                className="min-w-0 flex-1 rounded-md border border-border bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-primary"
-              />
-              <button
-                type="submit"
-                className="rounded-md bg-primary p-2 text-primary-foreground transition-transform hover:scale-105 active:scale-95"
-                aria-label="Send message"
-                title="Send"
-              >
-                <Send className="h-4 w-4" />
-              </button>
-            </form>
-          </div>
-        </section>
-      )}
-
-      <button
-        type="button"
-        onClick={isOpen ? closeChat : openChat}
-        className="flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition-transform hover:scale-105 active:scale-95"
-        aria-label={isOpen ? "Close chat" : "Open Abdul's virtual assistant"}
-        title={isOpen ? "Close chat" : "Chat with Abdul's assistant"}
-      >
-        {isOpen ? <X className="h-6 w-6" /> : <MessageCircle className="h-6 w-6" />}
-      </button>
-    </div>
-  );
-};
+const starters = ['Give me a quick introduction', 'Show me his best projects', 'What is his experience?', 'What is his tech stack?'];
+const welcome = () => ({ id: 'welcome', role: 'assistant', text: assistantProfile.intro, links: [], suggestions: starters });
+export function ChatAssistant() {
+  const [open, setOpen] = useState(false), [input, setInput] = useState(''), [messages, setMessages] = useState(() => [welcome()]), [typing, setTyping] = useState(false);
+  const [topic, setTopic] = useState(null);
+  const inputRef = useRef(null), end = useRef(null), timer = useRef(null), busy = useRef(false), launcher = useRef(null);
+  const latest = [...messages].reverse().find(message => message.role === 'assistant');
+  useEffect(() => () => window.clearTimeout(timer.current), []);
+  useEffect(() => {
+    if (!open) return;
+    inputRef.current?.focus({ preventScroll: true });
+    function escape(event) { if (event.key === 'Escape') { setOpen(false); launcher.current?.focus(); } }
+    document.addEventListener('keydown', escape);
+    return () => document.removeEventListener('keydown', escape);
+  }, [open]);
+  useEffect(() => { if (open) end.current?.scrollIntoView({ behavior: 'instant', block: 'nearest' }); }, [messages, typing, open]);
+  function send(value = input) {
+    const question = value.trim();
+    if (!question || busy.current) return;
+    busy.current = true;
+    const answer = answerQuestion(question, topic);
+    setInput(''); setTyping(true);
+    setMessages(current => [...current, { id: crypto.randomUUID(), role: 'user', text: question }]);
+    timer.current = window.setTimeout(() => {
+      setMessages(current => [...current, { id: crypto.randomUUID(), role: 'assistant', ...answer }]);
+      if (answer.topic !== 'unknown' && answer.topic !== 'greeting') setTopic(answer.topic);
+      setTyping(false); busy.current = false;
+    }, 400 + Math.min(question.length * 4, 250));
+  }
+  function reset() { window.clearTimeout(timer.current); busy.current = false; setTyping(false); setMessages([welcome()]); setTopic(null); setInput(''); inputRef.current?.focus(); }
+  function followLink(event, url) { if (url.startsWith('#')) { event.preventDefault(); setOpen(false); document.querySelector(url)?.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }
+  return <div className={`assistant-dock ${open ? 'is-open' : ''}`}>
+    {open && <section className="assistant-panel" aria-label="Abdul's Assistant"><div className="assistant-top"><span className="assistant-avatar">a<span>k</span></span><div className="assistant-title"><h2>Abdul’s Assistant</h2><span><i/> PORTFOLIO GUIDE</span></div><button type="button" onClick={reset} aria-label="Start a new conversation" title="New conversation"><RotateCcw size={15}/></button><button type="button" onClick={() => setOpen(false)} aria-label="Minimize assistant"><Minus size={19}/></button></div>
+      <div className="assistant-intro-strip"><Command size={12}/><span>THE SHORTCUT TO GETTING TO KNOW ABDUL</span></div>
+      <div className="assistant-messages" role="log" aria-live="polite" aria-label="Conversation">{messages.map(message => <div className={`assistant-message assistant-message--${message.role}`} key={message.id}><span className="message-author">{message.role === 'assistant' ? 'AK / ASSISTANT' : 'YOU'}</span><p>{message.text}</p>{message.links?.length > 0 && <div className="assistant-link-list">{message.links.map(item => <a key={item.url + item.label} href={item.url} target={item.url.startsWith('http') ? '_blank' : undefined} rel={item.url.startsWith('http') ? 'noreferrer' : undefined} onClick={event => followLink(event, item.url)}>{item.label}<ArrowUpRight size={14}/></a>)}</div>}</div>)}{typing && <div className="assistant-typing" aria-label="Assistant is preparing a response"><i/><i/><i/></div>}<div ref={end}/></div>
+      <div className="assistant-composer"><div className="assistant-prompts">{latest?.suggestions?.slice(0, messages.length === 1 ? 4 : 2).map(prompt => <button type="button" disabled={typing} key={prompt} onClick={() => send(prompt)}>{prompt}<ArrowUpRight size={11}/></button>)}</div><form onSubmit={event => { event.preventDefault(); send(); }}><label className="sr-only" htmlFor="assistant-input">Ask Abdul's Assistant</label><input ref={inputRef} id="assistant-input" autoComplete="off" maxLength={500} placeholder="Ask about the work, the stack…" value={input} onChange={event => setInput(event.target.value)} disabled={typing}/><button type="submit" disabled={typing || !input.trim()} aria-label="Send message"><ArrowUp size={19}/></button></form><div className="assistant-footnote"><span><i/> ANSWERS FROM THE PORTFOLIO</span><span>ASK. EXPLORE. CONNECT.</span></div></div>
+    </section>}
+    <button ref={launcher} type="button" className="assistant-launcher" onClick={() => setOpen(!open)} aria-label={open ? "Close Abdul's Assistant" : "Open Abdul's Assistant"} aria-expanded={open}><span className="launcher-icon">{open ? <X size={20}/> : <MessageSquare size={19}/>}</span><span>{open ? 'Close assistant' : 'Ask Abdul’s Assistant'}</span><span className="launcher-plus">{open ? '−' : '+'}</span></button>
+  </div>;
+}

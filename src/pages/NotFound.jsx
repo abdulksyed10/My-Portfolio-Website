@@ -1,3 +1,3 @@
-export const NotFound = () => {
-  return <div>Page Not Found</div>
-};
+import { Link } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
+export const NotFound = () => <main style={{ minHeight:'100svh', display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', padding:30, gap:22, textAlign:'center', background:'#151619', color:'#f0f0e8' }}><span style={{ color:'#d9fa66', fontSize:12, letterSpacing:3 }}>404 / PAGE NOT FOUND</span><h1 style={{ fontSize:'clamp(40px,7vw,90px)', letterSpacing:'-.05em', lineHeight:1 }}>A wrong turn.</h1><p style={{ color:'#939f8c' }}>The page you’re looking for isn’t here.</p><Link to="/" style={{ display:'flex', alignItems:'center', gap:12, borderBottom:'1px solid #768668', paddingBottom:8 }}><ArrowLeft size={17}/> Back to the portfolio</Link></main>;
